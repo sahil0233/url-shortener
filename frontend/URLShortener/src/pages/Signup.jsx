@@ -10,8 +10,10 @@ const Signup = () => {
     const [password,setPassword ] = useState("");
     const navigate = useNavigate();
 
+    const backendurl = "https://url-shortener-backend-iota.vercel.app";
+
     useEffect(() => {
-        axios.post("http://localhost:3000/user/me",{"token" : localStorage.getItem("token")
+        axios.post(backendurl+"/user/me",{"token" : localStorage.getItem("token")
         }).then(res => {
             const { loggedin } =res.data;
             if(loggedin == "true"){
@@ -59,7 +61,7 @@ const Signup = () => {
                     <div className="flex items-center justify-between mt-4">
 
                         <button onClick={async () => {
-                            const response = await axios.post("http://localhost:3000/user/signup",{
+                            const response = await axios.post(backendurl+"/user/signup",{
                                 username,
                                 firstName,
                                 lastName,

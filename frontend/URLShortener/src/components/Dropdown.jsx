@@ -5,6 +5,7 @@ import Modal from './Modal';
 const Dropdown = ({ deleteurl, links, setLinks }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const backendurl = "https://url-shortener-backend-iota.vercel.app/";
 
     const handleDelete = () => {
         const isConfirmed = window.confirm("Are you sure you want to delete this link");
@@ -12,7 +13,7 @@ const Dropdown = ({ deleteurl, links, setLinks }) => {
         if(isConfirmed){
             {
                 console.log("delete clicked")
-                axios.delete(`http://localhost:3000/url/delete/${deleteurl}`)
+                axios.delete(`${backendurl}/url/delete/${deleteurl}`)
                 .then(res => {
                     console.log(deleteurl);
                     setLinks(links.filter((link) => link.urlCode !== deleteurl))

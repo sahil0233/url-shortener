@@ -4,9 +4,10 @@ import axios from "axios";
 const Signin = () => {
     const [username, setUsername]= useState();
     const [password, setPassword]= useState();
+    const backendurl = "https://url-shortener-backend-iota.vercel.app"
 
     useEffect(() => {
-        axios.post("http://localhost:3000/user/me",{"token" : localStorage.getItem("token")
+        axios.post(backendurl+"/user/me",{"token" : localStorage.getItem("token")
         }).then(res => {
             const { loggedin } =res.data;
             if(loggedin == "true"){
@@ -44,7 +45,7 @@ const Signin = () => {
                 <a href="#" className="text-sm text-gray-600 dark:text-gray-200 hover:text-gray-500">Forget Password?</a>
 
                 <button onClick={() => {
-                    axios.post("http://localhost:3000/user/signin",{
+                    axios.post(backendurl+"/user/signin",{
                         username,
                         password
 

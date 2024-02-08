@@ -3,6 +3,8 @@ import Navbar from "../components/Navbar";
 import axios from "axios";
 import Dropdown from '../components/Dropdown';
 
+const backendurl = "https://url-shortener-backend-iota.vercel.app";
+
 const Dashboard = () => {
     const [links, setLinks] = useState([]);
     const [url, setUrl] = useState();
@@ -15,7 +17,7 @@ const Dashboard = () => {
       }
 
     useEffect(() => {
-        axios.post("http://localhost:3000/user/me",{"token" : localStorage.getItem("token")
+        axios.post(backendurl+"/user/me",{"token" : localStorage.getItem("token")
         }).then(res => {
             const { loggedin } =res.data;
             if(loggedin == "false"){
@@ -23,7 +25,7 @@ const Dashboard = () => {
             }
         })
 
-        axios.get("http://localhost:3000/url/my/links",{
+        axios.get(backendurl+"/url/my/links",{
             headers: {
                 Authorization: "Bearer "+ localStorage.getItem("token")
             }
@@ -60,7 +62,7 @@ const Dashboard = () => {
                         data-te-ripple-init
                         data-te-ripple-color="light" 
                         onClick={() => {
-                            axios.post("http://localhost:3000/url/shorten", {
+                            axios.post(backendurl+"/url/shorten", {
                                longUrl: url 
                             }, {
                                 headers : {
@@ -68,7 +70,7 @@ const Dashboard = () => {
                                 }
                             }).then(res => {
                                 console.log(res.data);
-                                axios.get("http://localhost:3000/url/my/links",{
+                                axios.get(backendurl+"/url/my/links",{
                                     headers: {
                                         Authorization: "Bearer "+ localStorage.getItem("token")
                                     }
