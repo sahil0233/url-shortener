@@ -27,6 +27,10 @@ const updateBody = z.object({
 
 const router = express.Router();
 
+router.get("/test", (req,res) => {
+    return res.send("woking");
+})
+
 router.post("/signup",async (req,res) => {
     const body = req.body;
     const input = signupSchema.safeParse(body);
