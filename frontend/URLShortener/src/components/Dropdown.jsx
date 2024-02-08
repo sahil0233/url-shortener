@@ -44,7 +44,7 @@ const Dropdown = ({ deleteurl, links, setLinks }) => {
   return (
     <div className="relative flex justify-center content-center">
       <div onClick= {toggleMenu} className='w-20 rounded-lg flex gap-2 justify-center items-center bg-gray-200 hover:bg-gray-400 hover:cursor-pointer'>
-            <img className='w-8 h-8' src="./public/settings.svg" />
+            <img className='w-8 h-8' src="/settings.svg" />
             <img className='w-6 h-6' src="/dropdown.svg" />
         </div>
       {isOpen && (
