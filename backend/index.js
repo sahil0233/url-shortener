@@ -13,6 +13,9 @@ const options = [
   
   app.use(cors(options));
 app.use(express.json());
+app.get("/hi",(req,res) => {
+    return res.send("hello");
+})
 app.use("/",mainRouter);
 
 
