@@ -1,6 +1,6 @@
 require('dotenv').config()
 const mongoose = require("mongoose");
-mongoose.connect(process.env.MONGO_URL)
+mongoose.connect("mongodb+srv://yourchoicesahil:ewPD0BsRe0hEKAF8@samskara-db.1tc5abk.mongodb.net/URL_Shortener")
 
 const userSchema = new mongoose.Schema({
     username: {
