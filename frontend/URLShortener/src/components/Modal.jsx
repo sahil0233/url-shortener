@@ -11,7 +11,7 @@ const Modal = ({ closeModal, urlCode }) => {
         <label for="url" class="block mb-2 text-sm font-medium text-black">New URL</label>
         <input onChange={e => {setNewurl(e.target.value)}} type="text" id="url" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter new url" required />
         <button className='bg-black text-white p-2 mt-2 rounded-sm' onClick={() => {
-            axios.put(`${backendurl}/url/update/${urlCode}?newurl=${newurl}`)
+            axios.put(`${backendurl}url/update/${urlCode}?newurl=${newurl}`)
             .then(res => {
                 console.log(res.data);
             })

@@ -13,7 +13,7 @@ const Dropdown = ({ deleteurl, links, setLinks }) => {
         if(isConfirmed){
             {
                 console.log("delete clicked")
-                axios.delete(`${backendurl}/url/delete/${deleteurl}`)
+                axios.delete(`${backendurl}url/delete/${deleteurl}`)
                 .then(res => {
                     console.log(deleteurl);
                     setLinks(links.filter((link) => link.urlCode !== deleteurl))
